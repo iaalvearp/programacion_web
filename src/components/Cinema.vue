@@ -58,7 +58,7 @@
           <button
             @click="nextStep"
             :disabled="!selectedMovie"
-            class="px-8 py-3 bg-red-600 hover:bg-red-700 disabled:bg-slate-700 text-white font-semibold rounded-lg transition-colors"
+            class="px-8 py-3 bg-red-600 hover:bg-red-700 disabled:bg-slate-700 disabled:cursor-not-allowed cursor-pointer text-white font-semibold rounded-lg transition-colors"
           >
             Siguiente <ChevronRight class="w-4 h-4 inline ml-2" />
           </button>
@@ -85,14 +85,14 @@
         <div class="flex justify-between">
           <button
             @click="prevStep"
-            class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors"
+            class="px-8 py-3 bg-slate-700 hover:bg-slate-600 cursor-pointer text-white font-semibold rounded-lg transition-colors"
           >
             <ChevronLeft class="w-4 h-4 inline mr-2" /> Atrás
           </button>
           <button
             @click="nextStep"
             :disabled="!selectedTime"
-            class="px-8 py-3 bg-red-600 hover:bg-red-700 disabled:bg-slate-700 text-white font-semibold rounded-lg transition-colors"
+            class="px-8 py-3 bg-red-600 hover:bg-red-700 disabled:bg-slate-700 disabled:cursor-not-allowed cursor-pointer text-white font-semibold rounded-lg transition-colors"
           >
             Siguiente <ChevronRight class="w-4 h-4 inline ml-2" />
           </button>
@@ -193,7 +193,7 @@
         <div class="flex justify-between">
           <button
             @click="prevStep"
-            class="px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors"
+            class="px-8 py-3 bg-slate-700 hover:bg-slate-600 cursor-pointer text-white font-semibold rounded-lg transition-colors"
           >
             <ChevronLeft class="w-4 h-4 inline mr-2" /> Atrás
           </button>
@@ -247,13 +247,13 @@
         <div class="flex gap-4">
           <button
             @click="resetBooking"
-            class="flex-1 px-8 py-3 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition-colors"
+            class="flex-1 px-8 py-3 bg-slate-700 hover:bg-slate-600 cursor-pointer text-white font-semibold rounded-lg transition-colors"
           >
             Nueva Reserva
           </button>
           <button
             @click="completeBooking"
-            class="flex-1 px-8 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+            class="flex-1 px-8 py-3 bg-green-600 hover:bg-green-700 cursor-pointer text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
           >
             <Download class="w-4 h-4" /> Descargar Boleto
           </button>
