@@ -25,18 +25,29 @@
             v-for="movie in movies"
             :key="movie.id"
             @click="selectMovie(movie)"
-            class="group cursor-pointer rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+            class="group cursor-pointer rounded-lg overflow-hidden transition-all duration-300"
+            :class="[
+              selectedMovie?.id === movie.id 
+                ? 'ring-4 ring-red-500 scale-105 shadow-2xl shadow-red-500/20' 
+                : 'hover:scale-105 hover:shadow-xl'
+            ]"
           >
-            <div class="relative h-64 bg-linear-to-br from-red-500 to-red-700 flex items-center justify-center overflow-hidden">
-              <Popcorn class="w-24 h-24 text-white opacity-20 group-hover:opacity-40 transition-opacity" />
-              <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <div 
+              class="relative h-64 bg-cover bg-center"
+              :style="{ backgroundImage: `url(${movie.image})` }"
+            >
+              <div class="absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent opacity-90"></div>
+              <div class="absolute inset-0 flex items-end p-4">
                 <div class="text-white">
-                  <p class="font-semibold">{{ movie.name }}</p>
-                  <p class="text-sm text-slate-300">{{ movie.duration }} min</p>
+                  <p class="font-semibold text-lg shadow-black/50 drop-shadow-md">{{ movie.name }}</p>
+                  <p class="text-sm text-slate-200 shadow-black/50 drop-shadow-md">{{ movie.duration }} min</p>
                 </div>
               </div>
             </div>
-            <div class="bg-slate-800 p-4 border border-slate-700/50">
+            <div 
+              class="p-4 border border-slate-700/50 transition-colors duration-300"
+              :class="selectedMovie?.id === movie.id ? 'bg-red-950/30 border-red-500/50' : 'bg-slate-800'"
+            >
               <h3 class="font-semibold text-white">{{ movie.name }}</h3>
               <p class="text-sm text-slate-400 mt-1">{{ movie.genre }}</p>
               <p class="text-red-500 font-bold mt-2">${{ movie.price }}</p>
@@ -204,7 +215,7 @@
           <p class="text-slate-400">Tu boleto está listo para descargar</p>
         </div>
 
-        <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-slate-700/50 space-y-4">
+        <div class="bg-linear-to-br from-slate-800 to-slate-900 p-8 rounded-lg border border-slate-700/50 space-y-4">
           <div class="flex justify-between items-start pb-4 border-b border-slate-700/50">
             <div>
               <p class="text-slate-500 text-sm">Película</p>
@@ -262,9 +273,9 @@ const selectedTime = ref(null)
 const selectedSeats = ref([])
 
 const movies = [
-  { id: 1, name: 'Interestelar', genre: 'Ciencia Ficción', price: 12.50, duration: 169 },
-  { id: 2, name: 'El Origen', genre: 'Thriller', price: 12.50, duration: 148 },
-  { id: 3, name: 'Interstellar: Legado', genre: 'Drama', price: 12.50, duration: 180 },
+  { id: 1, name: 'Superman', genre: 'Acción/Superhéroes', price: 15.00, duration: 135, image: '/img/superman.avif' },
+  { id: 2, name: 'Un Película de Minecraft', genre: 'Aventura/Fantasía', price: 12.50, duration: 110, image: '/img/minecraft.avif' },
+  { id: 3, name: 'Avatar: Fuego y Ceniza', genre: 'Ciencia Ficción', price: 18.00, duration: 190, image: '/img/avatar.avif' },
 ]
 
 const times = ['10:00 AM', '1:30 PM', '4:00 PM', '7:30 PM', '10:00 PM']
